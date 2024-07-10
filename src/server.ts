@@ -15,5 +15,7 @@ mongoose.connect(
 
     app.use("/", userRouter)
 
-
+    app.get("/", (req,res)=>{
+        res.status(200).json({message: "This is my User Manage backend"})
+      })
 export default app
