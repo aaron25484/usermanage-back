@@ -17,9 +17,6 @@ app.use(cors(corsOptions))
 
 const mongoUri = config.app.MONGO_DB_URL;
 
-console.log("MONGO_DB_URL:", mongoUri);
-
-
 if (!mongoUri) {
     throw new Error("MONGO_DB_URL is not defined in the environment variables");
   }
