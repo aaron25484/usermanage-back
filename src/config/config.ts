@@ -30,7 +30,9 @@ const CONFIG: Tconfig = {
     },
     production: {
         app:{
-            PORT: process.env.PORT || 4002
+            PORT: process.env.PORT || 4002,
+            MONGO_DB_URL: process.env.MONGO_DB_URL
+
         }
     }
 }
