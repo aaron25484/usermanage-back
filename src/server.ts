@@ -7,12 +7,22 @@ import cors from "cors"
 
 const app: Application = express()
 app.use(express.json())
+
 const corsOptions = {
     origin: ['http://localhost:5173','https://user-manage-front.netlify.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }
 app.use(cors(corsOptions))
+
+const mongoUri = config.app.MONGO_DB_URL;
+
+console.log("MONGO_DB_URL:", mongoUri);
+
+
+if (!mongoUri) {
+    throw new Error("MONGO_DB_URL is not defined in the environment variables");
+  }
 
 mongoose.connect(
     config.app.MONGO_DB_URL!)
