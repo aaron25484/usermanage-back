@@ -8,7 +8,6 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
         const newUser = new User({ name, email, password });
         await newUser.save();
         res.status(201).json(newUser);
-        console.log(newUser)
     } catch (error) {
         res.status(400).json({ error: 'Error registering user' });
     }
